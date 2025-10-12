@@ -13,7 +13,8 @@ public class DataSC : MonoBehaviour
     public string pName;
     public int pHighScore, pTotalScore, pHighLv, pStoryLvl, pGems;
     public int pSFX, pTheme;
-    public int pAbility;
+    public int pAbility, pAllowClaimDaily, pAllowClaimMonthly;
+    public int pDailyStreak,pMonthlyStreak;
     public string pLastDailyClaim, pLastMonthlyClaim;
     private void Awake()
     {
@@ -59,8 +60,12 @@ public class DataSC : MonoBehaviour
         PlayerPrefs.SetInt("sfxState", 1);
 
         PlayerPrefs.SetInt("CurAblility", 0); //index of ability order in list. 0 is non
+        PlayerPrefs.SetInt("AllowClaimDaily", 0);
+        PlayerPrefs.SetInt("AllowClaimMonthly", 0);
         PlayerPrefs.SetString("LastPatrolDailyTime", "");
         PlayerPrefs.SetString("LastPatrolMonthlyTime", "");
+        PlayerPrefs.SetInt("PatrolDailyStreak", 0);
+        PlayerPrefs.SetInt("PatrolMonthlyStreak", 0);
         Invoke("LoadOldPlayer", 3f); //De tam thoi
     }
     private void LoadOldPlayer()
@@ -76,6 +81,12 @@ public class DataSC : MonoBehaviour
         pAbility = PlayerPrefs.GetInt("CurAblility");
         pLastDailyClaim = PlayerPrefs.GetString("LastPatrolDailyTime");
         pLastMonthlyClaim = PlayerPrefs.GetString("LastPatrolMonthlyTime");
+        pAllowClaimDaily = PlayerPrefs.GetInt("AllowClaimDaily");
+        pAllowClaimMonthly = PlayerPrefs.GetInt("AllowClaimMonthly");
+        pDailyStreak = PlayerPrefs.GetInt("PatrolDailyStreak");
+        pMonthlyStreak = PlayerPrefs.GetInt("PatrolMonthlyStreak");
+
+        print("pDailyStreak = " + pDailyStreak);
     }
     public void DataDelete()
     {
@@ -150,17 +161,45 @@ public class DataSC : MonoBehaviour
         PlayerPrefs.SetString("LastPatrolMonthlyTime", lastPatrolMonth);
         pLastDailyClaim = PlayerPrefs.GetString("LastPatrolMonthlyTime");
     }
+    public void UpdateAllowClaimDaily(int state)
+    {
+        PlayerPrefs.SetInt("AllowClaimDaily", state);
+        pAllowClaimDaily = PlayerPrefs.GetInt("AllowClaimAllowClaimDaily");
+    }
+    public void UpdateAllowClaimMontly(int state)
+    {
+        PlayerPrefs.SetInt("AllowClaimMontly", state);
+        pAllowClaimMonthly = PlayerPrefs.GetInt("AllowClaimMontly");
+    }
+    public void UpdateStreak(int typeStreak, int value)
+    {
+        switch (typeStreak)
+        {
+            case 1:
+                PlayerPrefs.SetInt("PatrolDailyStreak", value);
+                pDailyStreak = value;
+                break;
+            case 2:
+                PlayerPrefs.SetInt("PatrolMonthlyStreak", value);
+                pMonthlyStreak = value;
+                break;
+        }
+    }
     #endregion
 
     #region Checking Zone
     private bool CheckFirstPlay()
     {
-        print("FirstPlay: " + PlayerPrefs.GetInt("HasPlayed"));
+        //print("FirstPlay: " + PlayerPrefs.GetInt("HasPlayed"));
         if (PlayerPrefs.GetInt("HasPlayed") == 1)
         {
             return isFirstPlay = false;
         }
         else return true;
+    }
+    private bool CheckNewDay()
+    {
+        return true;
     }
     #endregion
 }

@@ -22,6 +22,7 @@ public class HomeSC : MonoBehaviour
         OnShowReward(false);
         OnShowShop(false);
         GetPlayerInfor();
+
     }
     #region Change Scene
     public void OnToArcade() => genCtr.OnLoadArcade();

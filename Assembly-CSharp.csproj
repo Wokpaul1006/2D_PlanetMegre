@@ -67,7 +67,6 @@
     <Compile Include="Assets\Script\Panels\CreditSC.cs" />
     <Compile Include="Assets\Script\Planets\Planet11.cs" />
     <Compile Include="Assets\Script\Controller\LoadSC.cs" />
-    <Compile Include="Assets\ShopSC.cs" />
     <Compile Include="Assets\Script\Panels\RatingSC.cs" />
     <Compile Include="Assets\Script\Planets\Planet10.cs" />
     <Compile Include="Assets\Script\Background\MainThemeSC.cs" />
@@ -87,7 +86,6 @@
     <Compile Include="Assets\Script\Panels\SettingSC.cs" />
     <Compile Include="Assets\Script\Controller\HomeSC.cs" />
     <Compile Include="Assets\Script\Background\Singleton.cs" />
-    <Compile Include="Assets\PatrolRewardSC.cs" />
     <Compile Include="Assets\Script\Background\SoundSC.cs" />
     <Compile Include="Assets\Script\Planets\Planet08.cs" />
     <Compile Include="Assets\Script\Planets\Planet02.cs" />
