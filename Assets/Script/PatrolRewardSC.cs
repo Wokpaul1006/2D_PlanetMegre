@@ -17,216 +17,127 @@ public class PatrolRewardSC : MonoBehaviour
 
     private const string LastPatrolTimeKey = "LastPatrolTime";
     private const string PatrolStreakKey = "PatrolStreak";
-    public int baseReward = 100; // example reward
-    private int prefClaimDailyState, prefClaimMonthlyState;
+    public int baseReward = 10; // example reward, x2 for each time count
+    public int rewardToGive;
     private bool isAllowDailyClaim, isAllowMonthlyClaim;
-    private int rewardDaily, rewardMonthly;
     private int streakDaily, streakMonthly;
+    private string lastCollectDay;
     void Start()
     {
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
         data = GameObject.Find("OBJ_Data").GetComponent<DataSC>();
         menu = GameObject.Find("MenuMN").GetComponent<HomeSC>();
 
-        streakDaily = 0; //Change it by PlayerPrefs
-        streakMonthly = 0; //Change it by PlayerPrefs
-
+        isAllowDailyClaim = false;
+        isAllowMonthlyClaim = false;
         streakDaily = data.pDailyStreak;
         streakMonthly = data.pMonthlyStreak;
-
-        rewardDaily = 0;
-        rewardMonthly = 0;
-
-        CheckLock(streakDaily, streakMonthly);
-        CheckClaimAvailable();
-        CheckNewDay();
+        lastCollectDay = "";
+        rewardToGive = 0;
+        ShowRewardDaily();
 
         print("streak Daily = " + streakDaily);
+        print("streak monthly = " + streakMonthly);
+        print("Today = " + genCtr.toDay);
+        print("lastCollectDay = " + data.pLastDailyClaim);
     }
+    public void OnClosePanel() => menu.UpdateHomeInfo();
 
-    private void CheckLock(int streakD, int streakM)
+    #region Handle Claim Daily
+    void ShowRewardDaily()
     {
-        if(streakD >= 1 && streakD < 8)
+        if (genCtr.toDay != data.pLastDailyClaim)
         {
-            for(int i = 0; i <= streakD - 1; i++)
-            {
-                rewardDailyLocker[i].gameObject.SetActive(false);
-            }
-        }
-
-        if(streakM >= 1 && streakM < 4)
-        {
-            for(int i = 0; i <= streakM - 1; i++)
-            {
-                rewardMonthlyLocker[i].gameObject.SetActive(false);
-            }
-        }
-    }
-
-    private void CheckClaimAvailable()
-    {
-        prefClaimDailyState = data.pAllowClaimDaily;
-        if(prefClaimDailyState == 1 || prefClaimDailyState == 0) 
-        { 
-            isAllowDailyClaim = true; 
-        }
-        else if(prefClaimDailyState == 2) 
-        {
-            isAllowDailyClaim = false; 
-        }
-
-        if (prefClaimMonthlyState == 1 || prefClaimMonthlyState == 0)
-        {
-            isAllowMonthlyClaim = true;
-        }
-        else if (prefClaimMonthlyState == 2)
-        {
-            isAllowMonthlyClaim = false;
-        }
-    }
-    private void CheckNewDay()
-    {
-        DateTime today;
-        DateTime lastClaimdaily;
-        string tempLastDaily;
-        string tempToday;
-        today = DateTime.Today;
-        tempToday = today.ToString();
-        tempLastDaily = data.pLastDailyClaim;
-
-        print("tempLastDaily: " + tempLastDaily);
-        print("tempToday: " + tempToday);
-    }
-
-    void CheckDaily()
-    {
-        if(IsAbleClaim(1) == true)
-        {
+            print("in enable button");
             claimDailyBtn.GetComponent<Button>().interactable = true;
+            if (streakDaily >= 1 && streakDaily < 8)
+            {
+                for (int i = 0; i <= streakDaily - 1; i++)
+                {
+                    rewardDailyLocker[i].gameObject.SetActive(false);
+                }
+                isAllowDailyClaim = true;
+            }
         }
-        else
+        else if (genCtr.toDay == data.pLastDailyClaim)
         {
+            print("in disable button");
+            isAllowDailyClaim = false;
             claimDailyBtn.GetComponent<Button>().interactable = false;
         }
     }
-    void CheckMonthly()
-    {
-        if(IsAbleClaim(2) == true)
-        {
-            claimMonthlyBtn.GetComponent<Button>().interactable = true;
-        }
-        else
-        {
-            claimMonthlyBtn.GetComponent<Button>().interactable = false;
-        }
-    }
-    bool IsAbleClaim(int type)
-    {
-        if (type == 1)
-        {
-            //Check claim daily
-            DateTime lastDailyPatrolClaim = GetLastPatrolTime();
-            DateTime currentDateTime = DateTime.UtcNow;
-            if (IsNewDay(lastDailyPatrolClaim, currentDateTime))
-            {
-                return true;
-            }
-            else return false;
-        }
-        else if (type == 2)
-        {
-            return true;
-        }
-        else return false;
-    }
-    DateTime GetLastPatrolTime()
-    {
-        string timeString = PlayerPrefs.GetString(LastPatrolTimeKey, "");
-        if (string.IsNullOrEmpty(timeString)) return DateTime.MinValue;
-        DateTime.TryParse(timeString, out DateTime result);
-        return result;
-    }
-
-    bool IsNewDay(DateTime lastTime, DateTime currentTime) { return lastTime.Date != currentTime.Date; }
-
     public void OnClaimDaily()
     {
-        //Give reward Daily, attach to Day claim button
-        streakDaily = data.pDailyStreak;
+        int tempFinalScoreToOverride;
+        SelectRewardDaily();
+        print("baseReward = " + baseReward);
+        tempFinalScoreToOverride = baseReward + data.pTotalScore;
+        data.UpdateTotalScore(tempFinalScoreToOverride); // Update score
         streakDaily++;
-        data.UpdateStreak(1, streakDaily);
-
+        data.UpdateStreak(1, streakDaily); //Update streak
+        lastCollectDay = DateTime.Today.Day.ToString();
+        data.UpdatePatrolDailyReward(lastCollectDay); //Update last collect day
+        isAllowDailyClaim = false;
+        ShowRewardDaily();
+    }
+    private void SelectRewardDaily()
+    {
         switch (streakDaily)
         {
+            case 0:
+                baseReward = 10;
+                break;
             case 1:
-                rewardDaily = 10;
+                baseReward = 20;
                 break;
             case 2:
-                rewardDaily = 20;
+                baseReward = 40;
                 break;
             case 3:
-                rewardDaily = 40;
+                baseReward = 80;
                 break;
             case 4:
-                rewardDaily = 80;
+                baseReward = 160;
                 break;
             case 5:
-                rewardDaily = 100;
+                baseReward = 320;
                 break;
             case 6:
-                rewardDaily = 200;
+                baseReward = 640;
                 break;
             case 7:
-                rewardDaily = 400;
-                break;
-            case 8:
-                rewardDaily = 1000;
+                baseReward = 1280;
                 break;
         }
-        GiveReward(rewardDaily, 1);
+    }
+    #endregion
 
-        DateTime curTimeClaim;
-        curTimeClaim = DateTime.UtcNow;
-        string currentTimeString = curTimeClaim.ToString();
-        data.UpdatePatrolDailyReward(currentTimeString);
+    #region Handle Claim Monthly
+    void ShowRewardMonthly()
+    {
+
     }
     public void OnClaimMonthly()
     {
-        //Give Reward Monthly, attach to Month Claim button
-    }
 
-  
-    int CalculateReward(int streak, int rewardType)
-    {
-        // Example: reward increases every day up to a cap
-        if (rewardType == 1) return baseReward + (streak - 1) * 50;
-        else if (rewardType == 2) return 1;
-        else return 0;
     }
-
-    private void GiveReward(int amount, int type)
+    private void SelectRewardMonthly()
     {
-        Debug.Log($"Patrol reward granted: {amount}");
-        // Add reward to player inventory / currency
-        if(type  == 1)
+        switch (streakMonthly)
         {
-            int pCoinPref;
-            int tempCoin;
-            pCoinPref = data.pTotalScore;
-            tempCoin = pCoinPref + amount;
-            data.UpdateTotalScore(tempCoin);
-            data.UpdateAllowClaimDaily(2);
-            isAllowDailyClaim = false;
-        }else if(type == 2)
-        {
-            int pGemPref;
-            int tempGem;
-            pGemPref = data.pGems;
-            tempGem = pGemPref + amount;
-            data.UpdateTotalGem(tempGem);
-            data.UpdateAllowClaimDaily(2);
-            isAllowDailyClaim = false;
+            case 0:
+                baseReward = 10;
+                break;
+            case 1:
+                baseReward = 20;
+                break;
+            case 2:
+                baseReward = 40;
+                break;
+            case 3:
+                baseReward = 80;
+                break;
         }
-
     }
+    #endregion
 }

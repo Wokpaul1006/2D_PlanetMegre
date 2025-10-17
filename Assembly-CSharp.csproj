@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0CC52A8F-97A2-5856-28D5-220BB4EA650D}</ProjectGuid>
+    <ProjectGuid>{E31E53CB-5532-3728-68E7-6B03C5DF05C6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,14 +63,17 @@
     <Compile Include="Assets\Script\Planets\Planet12.cs" />
     <Compile Include="Assets\Script\Planets\Planet05.cs" />
     <Compile Include="Assets\Script\Planets\Planet07.cs" />
+    <Compile Include="Assets\Script\AchievementSC.cs" />
     <Compile Include="Assets\Script\Controller\DataSC.cs" />
     <Compile Include="Assets\Script\Panels\CreditSC.cs" />
     <Compile Include="Assets\Script\Planets\Planet11.cs" />
+    <Compile Include="Assets\Script\ShopSC.cs" />
     <Compile Include="Assets\Script\Controller\LoadSC.cs" />
     <Compile Include="Assets\Script\Panels\RatingSC.cs" />
     <Compile Include="Assets\Script\Planets\Planet10.cs" />
     <Compile Include="Assets\Script\Background\MainThemeSC.cs" />
     <Compile Include="Assets\Script\Planets\Planet04.cs" />
+    <Compile Include="Assets\Script\PatrolRewardSC.cs" />
     <Compile Include="Assets\Script\Planets\Planet03.cs" />
     <Compile Include="Assets\Script\Planets\Planet01.cs" />
     <Compile Include="Assets\Script\Controller\ArcadeSC.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="Assets\Script\Planets\Planet02.cs" />
     <Compile Include="Assets\Script\Planets\Planet06.cs" />
     <Compile Include="Assets\Script\Panels\PauseSC.cs" />
+    <Compile Include="Assets\Script\LeaderboardSC.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

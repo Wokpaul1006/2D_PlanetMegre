@@ -19,17 +19,15 @@ public class ShopSC : MonoBehaviour
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
         data = GameObject.Find("OBJ_Data").GetComponent<DataSC>();
         homeCtr = GameObject.Find("MenuMN").GetComponent<HomeSC>();
-        VisibleOnOpen();
+        moneypackPnl.gameObject.SetActive(false);
         SetPrice();
         LoadPlayerData();
     }
     void Update()
     {     }
-    void VisibleOnOpen()
-    {
-        if (!powerupPnl.gameObject.activeSelf) powerupPnl.gameObject.SetActive(true);
-        if (moneypackPnl.gameObject.activeSelf) moneypackPnl.gameObject.SetActive(false);
-    }
+
+    public void OnClosePanel() => homeCtr.UpdateHomeInfo();
+
     void LoadPlayerData()
     {
         pCurGem = data.pGems;

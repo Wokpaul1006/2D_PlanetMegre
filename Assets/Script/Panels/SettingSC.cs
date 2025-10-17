@@ -19,23 +19,24 @@ public class SettingSC : MonoBehaviour
         themeAllow = PlayerPrefs.GetInt("soundState");
         sfxAllow = PlayerPrefs.GetInt("sfxState");
         genCtrl = GameObject.Find("GenMN").GetComponent<GenMNSC>();
+
         CheckSound();
     }
     public void CheckSound()
     {
-        print("1. check sound");
+        //print("1. check sound");
         themeAllow = data.pTheme;
         sfxAllow = data.pSFX;
         switch (themeAllow)
         {
             case 0:
-                print("2. sound allow = 0");
+                //print("2. sound allow = 0");
                 themeMute.gameObject.SetActive(true);
                 themeLoud.gameObject.SetActive(false);
                 soundMusic.MuteTheme();
                 break;
             case 1:
-                print("3. sound allow = 1");
+                //print("3. sound allow = 1");
                 themeMute.gameObject.SetActive(false);
                 themeLoud.gameObject.SetActive(true);
                 soundMusic.PlayTheme();

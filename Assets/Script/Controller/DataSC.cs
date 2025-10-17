@@ -60,12 +60,15 @@ public class DataSC : MonoBehaviour
         PlayerPrefs.SetInt("sfxState", 1);
 
         PlayerPrefs.SetInt("CurAblility", 0); //index of ability order in list. 0 is non
+
+        //Patrol Reward
         PlayerPrefs.SetInt("AllowClaimDaily", 0);
         PlayerPrefs.SetInt("AllowClaimMonthly", 0);
         PlayerPrefs.SetString("LastPatrolDailyTime", "");
         PlayerPrefs.SetString("LastPatrolMonthlyTime", "");
         PlayerPrefs.SetInt("PatrolDailyStreak", 0);
         PlayerPrefs.SetInt("PatrolMonthlyStreak", 0);
+
         Invoke("LoadOldPlayer", 3f); //De tam thoi
     }
     private void LoadOldPlayer()
@@ -79,14 +82,14 @@ public class DataSC : MonoBehaviour
         pTheme = PlayerPrefs.GetInt("soundState");
         pSFX = PlayerPrefs.GetInt("sfxState");
         pAbility = PlayerPrefs.GetInt("CurAblility");
+
+        //Patrol Reward
         pLastDailyClaim = PlayerPrefs.GetString("LastPatrolDailyTime");
         pLastMonthlyClaim = PlayerPrefs.GetString("LastPatrolMonthlyTime");
         pAllowClaimDaily = PlayerPrefs.GetInt("AllowClaimDaily");
         pAllowClaimMonthly = PlayerPrefs.GetInt("AllowClaimMonthly");
         pDailyStreak = PlayerPrefs.GetInt("PatrolDailyStreak");
         pMonthlyStreak = PlayerPrefs.GetInt("PatrolMonthlyStreak");
-
-        print("pDailyStreak = " + pDailyStreak);
     }
     public void DataDelete()
     {
@@ -144,13 +147,13 @@ public class DataSC : MonoBehaviour
     public void UpdateAbility(int abilityOder)
     {
         PlayerPrefs.SetInt("CurAblility", abilityOder);
-        pTotalScore = PlayerPrefs.GetInt("CurAblility");
+        pAbility = PlayerPrefs.GetInt("CurAblility");
     }
-    public void UpdateWeapon(int weaponOder)
-    {
-        PlayerPrefs.SetInt("CurWeaponID", weaponOder);
-        pTotalScore = PlayerPrefs.GetInt("CurWeaponID");
-    }
+    //public void UpdateWeapon(int weaponOder)
+    //{
+    //    PlayerPrefs.SetInt("CurWeaponID", weaponOder);
+    //    pWeapon = PlayerPrefs.GetInt("CurWeaponID");
+    //}
     public void UpdatePatrolDailyReward(string lastPatrolDaily)
     {
         PlayerPrefs.SetString("LastPatrolDailyTime", lastPatrolDaily);

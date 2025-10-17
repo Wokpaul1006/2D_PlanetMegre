@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GenMNSC : Singleton<GenMNSC>
@@ -12,6 +13,7 @@ public class GenMNSC : Singleton<GenMNSC>
     [HideInInspector] HomeSC menuCtr;
     public int deviceType;
     public int curGameMode;
+    public string toDay;
     private void Awake() => DontDestroyOnLoad(this);
     void Start()
     {
@@ -20,6 +22,7 @@ public class GenMNSC : Singleton<GenMNSC>
         if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.Android) deviceType = 1;
         else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WebGLPlayer) deviceType = 2;
         HideAllPanel();
+        toDay = (DateTime.Today.Day).ToString() ;
     }
     void Update() { }
     public void AssistObjectPreload(int sceneOder)
@@ -73,6 +76,7 @@ public class GenMNSC : Singleton<GenMNSC>
     public void OnHideInfor() => IsShowPanel(false, 4);
     public void OnHideRate() => IsShowPanel(false, 5);
     public void OnHideCredit() => IsShowPanel(false, 6);
+    public void OnHideReadMe() => IsShowPanel(false, 7);
     private void HideAllPanel()
     { 
         OnHideSetting();
@@ -82,6 +86,7 @@ public class GenMNSC : Singleton<GenMNSC>
         OnHideInfor();
         OnHideRate();
         OnHideCredit();
+        OnHideReadMe();
     }
     #endregion
 

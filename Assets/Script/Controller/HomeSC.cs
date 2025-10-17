@@ -69,5 +69,12 @@ public class HomeSC : MonoBehaviour
         pGemsTxt.text = pGem.ToString();
         pCoinTxt.text = pCoin.ToString();
     }
+    public void UpdateHomeInfo()
+    {
+        //Only call once close any panel
+        print("in update home infor");
+        GetPlayerInfor();
+        OverridePlayerInfor();
+    }
     #endregion
 }
