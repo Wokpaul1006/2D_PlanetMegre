@@ -69,5 +69,5 @@ public class RatingSC : MonoBehaviour
         OnToRatePage();
     }
     private void OnToRatePage()
-    { Application.OpenURL("https://play.google.com/store/apps/details?id=com.SDSoft.MegrePlanet")}
+    { Application.OpenURL("https://play.google.com/store/apps/details?id=com.SDSoft.MegrePlanet"); }
 }

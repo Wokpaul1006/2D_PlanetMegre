@@ -22,6 +22,7 @@
     "com.unity.render-pipelines.universal": "14.0.12",
     "com.unity.render-pipelines.universal-config": "14.0.10",
     "com.unity.searcher": "4.9.2",
+    "com.unity.services.levelplay": "8.10.1",
     "com.unity.shadergraph": "14.0.12",
     "com.unity.sysroot": "2.0.7",
     "com.unity.sysroot.linux-x86_64": "2.0.6",
