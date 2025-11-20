@@ -12,15 +12,10 @@ public class LooseSC : MonoBehaviour
     {
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
     }
-    public void AssitGameControl()
-    {
-        //genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
-    }
 
     public void OnGameExit() { Application.Quit(); }
     public void OnReplay()
     {
-        print("1. in replay");
         genCtr.OnReplay();
         genCtr.OnHideLose();
     }

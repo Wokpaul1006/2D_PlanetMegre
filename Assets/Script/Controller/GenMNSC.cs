@@ -94,8 +94,8 @@ public class GenMNSC : Singleton<GenMNSC>
     {
         if(curGameMode == 2)
         {
-            arcadeCtr.GenerateGameplay();
             arcadeCtr.UpdatePlayerData();
+            Invoke(nameof(OnLoadArcade), 1.5f);
         }
         else if(curGameMode == 3)
         {
