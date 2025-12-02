@@ -32,26 +32,32 @@ public class HomeSC : MonoBehaviour
     #region Panel Visible
     public void OnShowShop(bool isShow)
     {
+        print("in show");
         shopPnl.gameObject.SetActive(isShow);
     }
     public void OnShowAchievement(bool isShow)
     {
+        print("in show");
         achievementPnl.gameObject.SetActive(isShow);
     }
     public void OnShowLeader(bool isShow)
     {
+        print("in show");
         leaderPnl.gameObject.SetActive(isShow);
     }
     public void OnShowReward(bool isShow)
     {
+        print("in show");
         rewardPnl.gameObject.SetActive(isShow);
     }
     public void OnShowSetting()
     {
+        print("in show");
         genCtr.OnShowSetting();
     }
     public void OnShowInfor()
     {
+        print("in show");
         genCtr.OnShowInfor();
     }
     #endregion
