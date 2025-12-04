@@ -10,12 +10,18 @@ public class AdsMN : MonoBehaviour
     private LevelPlayInterstitialAd interstitalAds;
 
     bool isAdsEnable = false;
+
+    [HideInInspector]
+    public bool isRewardLoaded, isInterstialLoaded;
     void Start()
     {
         LevelPlay.ValidateIntegration();
         LevelPlay.OnInitSuccess += SdkInitializationCompletedEvent;
         LevelPlay.OnInitFailed += SdkInitializationFailedEvent;
         LevelPlay.Init(AdConfig.AppKey);
+
+        isInterstialLoaded = false;
+        isRewardLoaded = false;
     }
     void EnableAds()
     {
@@ -60,7 +66,7 @@ public class AdsMN : MonoBehaviour
         interstitalAds.OnAdClosed += InterstitialOnAdClosedEvent;
         interstitalAds.OnAdInfoChanged += InterstitialOnAdInfoChangedEvent;
 
-        LoadAds(); //Load Advertisment
+        LoadAds(1); //Load Advertisment
     }
     #region Init callback handlers
     void SdkInitializationCompletedEvent(LevelPlayConfiguration config)
@@ -72,45 +78,63 @@ public class AdsMN : MonoBehaviour
     void SdkInitializationFailedEvent(LevelPlayInitError error) => Debug.Log($"[LevelPlaySample] Received SdkInitializationFailedEvent with Error: {error}");
     #endregion
 
-    private void LoadAds()
+    public void LoadAds(int a)
     {
-        bannerAds.LoadAd();
-        rewardAds.LoadAd();
-        interstitalAds.LoadAd();
-
-        ShowAds(1);
+        switch (a)
+        {
+            case 1:
+                //Load All On Init
+                bannerAds.LoadAd();
+                rewardAds.LoadAd();
+                interstitalAds.LoadAd();
+                break;
+            case 2:
+                //Load Only Interstial
+                interstitalAds.LoadAd();
+                break;
+            case 3:
+                //Load Only Reward
+                rewardAds.LoadAd();
+                break;
+            case 4:
+                //Load Only Banner
+                bannerAds.LoadAd();
+                break;
+        }
+        Invoke(nameof(ShowBannerAds), 10f);
     }
+
+    public void ShowBannerAds() => StartCoroutine(WaitToShowBanner());
 
     public void ShowAds(int adsID)
     {
         switch (adsID)
-        {
-            case 1: //Load Banner
-                StartCoroutine(WaitToShowBanner());
+        {     
+            case 1: //Load Interstial
+                interstitalAds.ShowAd();
                 break;
             case 2: //Load Reward
                 rewardAds.ShowAd();
-                break;
-            case 3: //Load Inter
-                interstitalAds.ShowAd();
                 break;
         }
     }
 
     private IEnumerator WaitToShowBanner()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(20);
         bannerAds.ShowAd();
     }
 
     #region AdInfo Rewarded Video
     void RewardedVideoOnLoadedEvent(LevelPlayAdInfo adInfo)
     {
+        isRewardLoaded = true;
         Debug.Log($"[LevelPlaySample] Received RewardedVideoOnLoadedEvent With AdInfo: {adInfo}");
     }
 
     void RewardedVideoOnAdLoadFailedEvent(LevelPlayAdError error)
     {
+        isRewardLoaded = false;
         Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdLoadFailedEvent With Error: {error}");
     }
 
@@ -136,6 +160,7 @@ public class AdsMN : MonoBehaviour
 
     void RewardedVideoOnAdClosedEvent(LevelPlayAdInfo adInfo)
     {
+        LoadAds(3);
         Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdClosedEvent With AdInfo: {adInfo}");
     }
 
@@ -150,11 +175,13 @@ public class AdsMN : MonoBehaviour
 
     void InterstitialOnAdLoadedEvent(LevelPlayAdInfo adInfo)
     {
+        isInterstialLoaded = true;
         Debug.Log($"[LevelPlaySample] Received InterstitialOnAdLoadedEvent With AdInfo: {adInfo}");
     }
 
     void InterstitialOnAdLoadFailedEvent(LevelPlayAdError error)
     {
+        isInterstialLoaded = false;
         Debug.Log($"[LevelPlaySample] Received InterstitialOnAdLoadFailedEvent With Error: {error}");
     }
 
@@ -175,6 +202,7 @@ public class AdsMN : MonoBehaviour
 
     void InterstitialOnAdClosedEvent(LevelPlayAdInfo adInfo)
     {
+        LoadAds(2);
         Debug.Log($"[LevelPlaySample] Received InterstitialOnAdClosedEvent With AdInfo: {adInfo}");
     }
 
