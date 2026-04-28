@@ -15,7 +15,7 @@ public class HomeSC : MonoBehaviour
     void Start()
     {
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
-        data = GameObject.Find("OBJ_Data").GetComponent<DataSC>();
+        data = GameObject.Find("GenMN").GetComponent<DataSC>();
         genCtr.AssistObjectPreload(1);
         OnShowAchievement(false);
         OnShowLeader(false);
@@ -78,7 +78,6 @@ public class HomeSC : MonoBehaviour
     public void UpdateHomeInfo()
     {
         //Only call once close any panel
-        print("in update home infor");
         GetPlayerInfor();
         OverridePlayerInfor();
     }

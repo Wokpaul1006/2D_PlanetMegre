@@ -13,16 +13,16 @@ public class GenMNSC : Singleton<GenMNSC>
     [HideInInspector] HomeSC menuCtr;
     public int deviceType;
     public int curGameMode;
-    public string toDay;
+    public string today;
     private void Awake() => DontDestroyOnLoad(this);
     void Start()
     {
         sceneCtr = GameObject.Find("OBJ_SceneControl").GetComponent<SceneMN>();
-        data = GameObject.Find("OBJ_Data").GetComponent<DataSC>();
+        data = GameObject.Find("GenMN").GetComponent<DataSC>();
         if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.Android) deviceType = 1;
         else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WebGLPlayer) deviceType = 2;
         HideAllPanel();
-        toDay = (DateTime.Today.Day).ToString() ;
+        today = (DateTime.Today.Day).ToString() ;
     }
     void Update() { }
     public void AssistObjectPreload(int sceneOder)
@@ -101,5 +101,9 @@ public class GenMNSC : Singleton<GenMNSC>
         {
 
         }
+    }
+    public void UpdateHmeUI()
+    {
+        menuCtr.UpdateHomeInfo();
     }
 }

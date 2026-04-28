@@ -13,7 +13,7 @@ public class SettingSC : MonoBehaviour
     [SerializeField] Image themeLoud, themeMute, sfxLoud, sfxMute;
     void Start()
     {
-        data = GameObject.Find("OBJ_Data").GetComponent<DataSC>();
+        data = GameObject.Find("GenMN").GetComponent<DataSC>();
         soundSFX = GameObject.Find("OBJ_SoundMN").GetComponent<SoundSC>();
         soundMusic = GameObject.Find("OBJ_ThemeMN").GetComponent<MainThemeSC>();
         themeAllow = PlayerPrefs.GetInt("soundState");

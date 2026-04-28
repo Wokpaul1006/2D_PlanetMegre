@@ -23,7 +23,7 @@ public class ArcadeSC : MonoBehaviour
     {
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
         //pauseCtr = GameObject.Find("PNL_Pause").GetComponent<PauseSC>();
-        data = GameObject.Find("OBJ_Data").GetComponent<DataSC>();
+        data = GameObject.Find("GenMN").GetComponent<DataSC>();
         genCtr.AssistObjectPreload(2);
         //pauseCtr.AssistGameplay(2);
         sun = Instantiate(sun, new Vector3(0, 4, 0), Quaternion.identity);

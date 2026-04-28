@@ -14,7 +14,7 @@ public class PlayerInforSC : MonoBehaviour
     void Start()
     {
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
-        data = GameObject.Find("OBJ_Data").GetComponent<DataSC>();
+        data = GameObject.Find("GenMN").GetComponent<DataSC>();
         deviceID = data.deviceID;
         GetPlayerData();
     }

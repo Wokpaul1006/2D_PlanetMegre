@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SunSC : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class SunSC : MonoBehaviour
 
     private void OnSpawnPlanetByKey()
     {
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Space))
         {
             int randPlanet = randPlanetToSpawn;
             Vector3 curPos = transform.position;
@@ -64,7 +65,6 @@ public class SunSC : MonoBehaviour
             if(t.phase == TouchPhase.Ended)
             {
                 float screenMidVertical = (Screen.height / 2) + (Screen.height / 4);
-                print("screenMidVertical = " + screenMidVertical);
                 if(t.position.y < screenMidVertical)
                 {
                     int randPlanet = randPlanetToSpawn;
@@ -131,7 +131,7 @@ public class SunSC : MonoBehaviour
 
     private void SelectNextPlanet()
     {
-        randPlanetToSpawn = Random.RandomRange(0, planetList.Count);
+        randPlanetToSpawn = Random.Range(0, planetList.Count);
         if (gameMode == 2) arcadeCtr.SetPreviewImage(randPlanetToSpawn);
         else if(gameMode == 3) { }
         gameObject.GetComponent<SpriteRenderer>().sprite = normalApparance;

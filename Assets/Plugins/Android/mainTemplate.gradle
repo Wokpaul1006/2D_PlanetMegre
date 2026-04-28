@@ -4,10 +4,14 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
+    implementation 'com.applovin:applovin-sdk:13.4.0' // Assets/LevelPlay/Editor/ISAppLovinAdapterDependencies.xml:12
     implementation 'com.google.android.gms:play-services-ads-identifier:18.1.0' // Assets/LevelPlay/Editor/IronSourceSDKDependencies.xml:12
     implementation 'com.unity3d.ads:unity-ads:4.16.3' // Assets/LevelPlay/Editor/ISUnityAdsAdapterDependencies.xml:12
+    implementation 'com.unity3d.ads-mediation:applovin-adapter:4.3.55' // Assets/LevelPlay/Editor/ISAppLovinAdapterDependencies.xml:5
     implementation 'com.unity3d.ads-mediation:mediation-sdk:8.11.1' // Assets/LevelPlay/Editor/IronSourceSDKDependencies.xml:5
     implementation 'com.unity3d.ads-mediation:unityads-adapter:4.3.61' // Assets/LevelPlay/Editor/ISUnityAdsAdapterDependencies.xml:5
+    implementation 'com.unity3d.ads-mediation:yandex-adapter:4.3.16' // Assets/LevelPlay/Editor/ISYandexAdapterDependencies.xml:9
+    implementation 'com.yandex.android:mobileads:7.15.2' // Assets/LevelPlay/Editor/ISYandexAdapterDependencies.xml:5
 // Android Resolver Dependencies End
 **DEPS**}
 
