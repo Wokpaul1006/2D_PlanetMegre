@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\assets\\script\\planets\\sunsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|d:\\projects\\2d project - sdcasual\\2d_planetmegre\\assets\\script\\planets\\sunsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\planets\\sunsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|d:\\projects\\2d project - sdcasual\\2d_planetmegre\\assets\\script\\controller\\arcadesc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\assets\\script\\controller\\arcadesc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\controller\\arcadesc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -19,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\controller\\genmnsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|d:\\projects\\2d project - sdcasual\\2d_planetmegre\\assets\\script\\panels\\ratingsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\assets\\script\\panels\\ratingsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\panels\\ratingsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -54,34 +54,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ArcadeSC.cs",
-              "DocumentMoniker": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Controller\\ArcadeSC.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Controller\\ArcadeSC.cs",
-              "ToolTip": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Controller\\ArcadeSC.cs",
-              "RelativeToolTip": "Assets\\Script\\Controller\\ArcadeSC.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T09:04:26.779Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RatingSC.cs",
-              "DocumentMoniker": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Panels\\RatingSC.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Panels\\RatingSC.cs",
-              "ToolTip": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Panels\\RatingSC.cs",
-              "RelativeToolTip": "Assets\\Script\\Panels\\RatingSC.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T08:39:56.752Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 5,
@@ -132,6 +106,31 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SunSC.cs",
+              "DocumentMoniker": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Planets\\SunSC.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Planets\\SunSC.cs",
+              "ToolTip": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Planets\\SunSC.cs",
+              "RelativeToolTip": "Assets\\Script\\Planets\\SunSC.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAYwAMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T08:19:54.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RatingSC.cs",
+              "DocumentMoniker": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Panels\\RatingSC.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Panels\\RatingSC.cs",
+              "ToolTip": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Panels\\RatingSC.cs",
+              "RelativeToolTip": "Assets\\Script\\Panels\\RatingSC.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T08:39:56.752Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 9,
               "Title": "PauseSC.cs",
               "DocumentMoniker": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Panels\\PauseSC.cs",
@@ -156,6 +155,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ArcadeSC.cs",
+              "DocumentMoniker": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Controller\\ArcadeSC.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Controller\\ArcadeSC.cs",
+              "ToolTip": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Controller\\ArcadeSC.cs",
+              "RelativeToolTip": "Assets\\Script\\Controller\\ArcadeSC.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T09:04:26.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "HomeSC.cs",
               "DocumentMoniker": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Controller\\HomeSC.cs",
@@ -164,8 +176,7 @@
               "RelativeToolTip": "Assets\\Script\\Controller\\HomeSC.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAAEcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T08:27:35.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T08:27:35.919Z"
             },
             {
               "$type": "Document",
@@ -177,21 +188,7 @@
               "RelativeToolTip": "Assets\\Script\\Controller\\GenMNSC.cs",
               "ViewState": "AgIAAEQAAAAAAAAAAAAswGcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T08:25:48.772Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SunSC.cs",
-              "DocumentMoniker": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Planets\\SunSC.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Planets\\SunSC.cs",
-              "ToolTip": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Planets\\SunSC.cs",
-              "RelativeToolTip": "Assets\\Script\\Planets\\SunSC.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-28T08:19:54.384Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-28T08:25:48.772Z"
             }
           ]
         },

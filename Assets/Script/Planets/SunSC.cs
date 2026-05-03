@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class SunSC : MonoBehaviour
 {
@@ -47,7 +47,7 @@ public class SunSC : MonoBehaviour
 
     private void OnSpawnPlanetByKey()
     {
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             int randPlanet = randPlanetToSpawn;
             Vector3 curPos = transform.position;
@@ -111,12 +111,12 @@ public class SunSC : MonoBehaviour
     {
         if(transform.position.x >= -3 && transform.position.x <= 3)
         {
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 //Move left
                 transform.position += Vector3.left * Time.deltaTime * moveSpd;
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKeyDown(KeyCode.D))
             {
                 //Move Right
                 transform.position += Vector3.right * Time.deltaTime * moveSpd;
