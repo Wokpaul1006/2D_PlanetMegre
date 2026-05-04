@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|d:\\projects\\2d project - sdcasual\\2d_planetmegre\\assets\\script\\planets\\sunsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\assets\\script\\planets\\sunsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\planets\\sunsc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\assets\\script\\controller\\arcadesc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|d:\\projects\\2d project - sdcasual\\2d_planetmegre\\assets\\script\\controller\\arcadesc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E31E53CB-5532-3728-68E7-6B03C5DF05C6}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\controller\\arcadesc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -112,7 +112,7 @@
               "RelativeDocumentMoniker": "Assets\\Script\\Planets\\SunSC.cs",
               "ToolTip": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Planets\\SunSC.cs",
               "RelativeToolTip": "Assets\\Script\\Planets\\SunSC.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAYwAMAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-28T08:19:54.384Z",
               "EditorCaption": ""
@@ -161,7 +161,7 @@
               "RelativeDocumentMoniker": "Assets\\Script\\Controller\\ArcadeSC.cs",
               "ToolTip": "D:\\Projects\\2D Project - SDCasual\\2D_PlanetMegre\\Assets\\Script\\Controller\\ArcadeSC.cs",
               "RelativeToolTip": "Assets\\Script\\Controller\\ArcadeSC.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-28T09:04:26.779Z",
               "EditorCaption": ""

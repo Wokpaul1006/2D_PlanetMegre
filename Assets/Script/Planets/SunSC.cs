@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SunSC : MonoBehaviour
@@ -111,12 +112,12 @@ public class SunSC : MonoBehaviour
     {
         if(transform.position.x >= -3 && transform.position.x <= 3)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
                 //Move left
                 transform.position += Vector3.left * Time.deltaTime * moveSpd;
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D))
             {
                 //Move Right
                 transform.position += Vector3.right * Time.deltaTime * moveSpd;
