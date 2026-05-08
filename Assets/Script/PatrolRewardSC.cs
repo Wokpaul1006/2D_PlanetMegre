@@ -9,8 +9,6 @@ public class PatrolRewardSC : MonoBehaviour
     [HideInInspector] GenMNSC genCtr;
 
     [SerializeField] List<Button> rewardBtn = new List<Button>();
-    [SerializeField] List<GameObject> dailyGrid = new List<GameObject>();
-    [SerializeField] List<Text> rewardText = new List<Text>();
 
     private const string LastPatrolTimeKey = "LastPatrolTime";
     private const string PatrolStreakKey = "PatrolStreak";
@@ -30,19 +28,7 @@ public class PatrolRewardSC : MonoBehaviour
         streakDaily = data.pDailyStreak;
         lastCollectDay = "";
         rewardToGive = 0;
-        OverrideUI();
         ShowRewardDaily();
-    }
-
-    private void OverrideUI()
-    {
-        rewardText[0].text = "10";
-        rewardText[1].text = "20";
-        rewardText[2].text = "40";
-        rewardText[3].text = "80";
-        rewardText[4].text = "160";
-        rewardText[5].text = "320";
-        rewardText[6].text = "640";
     }
 
     #region Handle Claim Daily

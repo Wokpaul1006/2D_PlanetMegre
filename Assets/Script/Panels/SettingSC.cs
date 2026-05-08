@@ -11,6 +11,7 @@ public class SettingSC : MonoBehaviour
     [HideInInspector] GenMNSC genCtrl;
     [HideInInspector] DataSC data;
     [SerializeField] Image themeLoud, themeMute, sfxLoud, sfxMute;
+    
     void Start()
     {
         data = GameObject.Find("GenMN").GetComponent<DataSC>();

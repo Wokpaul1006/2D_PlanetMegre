@@ -9,17 +9,16 @@ public class WinSC : MonoBehaviour
     [HideInInspector] ChallengeSC challengeCtr;
     private int gameMode;
     void Start()
-    {
-    }
+    { }
     public void AssitGameControl()
     {
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
     }
 
     public void OnGameExit() { Application.Quit(); }
+    public void OnHome() => genCtr.OnLoadHome();
     public void OnNextGame()
     {
-
+        genCtr.LoadArcadeFromWin();
     }
-    public void OnHome() => genCtr.OnLoadHome();
 }

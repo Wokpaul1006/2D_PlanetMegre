@@ -14,6 +14,7 @@ public class SunSC : MonoBehaviour
     private int deviceType, gameMode;
     private float moveSpd = 5f;
     private int randPlanetToSpawn;
+    private int curPlayerLevel;
     void Start()
     {
         sceneCtr = GameObject.Find("OBJ_SceneControl").GetComponent<SceneMN>();
@@ -27,7 +28,11 @@ public class SunSC : MonoBehaviour
     private void SetMode()
     {
 
-        if (gameMode == 2) arcadeCtr = GameObject.Find("ArcadeMN").GetComponent<ArcadeSC>();
+        if (gameMode == 2)
+        {
+            arcadeCtr = GameObject.Find("ArcadeMN").GetComponent<ArcadeSC>();
+            curPlayerLevel = arcadeCtr.arcadeLv;
+        }
         else if (gameMode == 3) challengeCtr = GameObject.Find("ChallengeMN").GetComponent<ChallengeSC>();
         SelectNextPlanet();
     }
@@ -132,9 +137,27 @@ public class SunSC : MonoBehaviour
 
     private void SelectNextPlanet()
     {
-        randPlanetToSpawn = Random.Range(0, planetList.Count);
-        if (gameMode == 2) arcadeCtr.SetPreviewImage(randPlanetToSpawn);
-        else if(gameMode == 3) { }
-        gameObject.GetComponent<SpriteRenderer>().sprite = normalApparance;
+        if(curPlayerLevel <= 10)
+        {
+            randPlanetToSpawn = Random.Range(0, planetList.Count /2);
+            if (gameMode == 2) arcadeCtr.SetPreviewImage(randPlanetToSpawn);
+            else if (gameMode == 3) { }
+            gameObject.GetComponent<SpriteRenderer>().sprite = normalApparance;
+
+        }
+        else if(curPlayerLevel> 10 && curPlayerLevel <= 30)
+        {
+            randPlanetToSpawn = Random.Range(0, planetList.Count - 2);
+            if (gameMode == 2) arcadeCtr.SetPreviewImage(randPlanetToSpawn);
+            else if (gameMode == 3) { }
+            gameObject.GetComponent<SpriteRenderer>().sprite = normalApparance;
+        }
+        else if(curPlayerLevel > 30)
+        {
+            randPlanetToSpawn = Random.Range(0, planetList.Count);
+            if (gameMode == 2) arcadeCtr.SetPreviewImage(randPlanetToSpawn);
+            else if (gameMode == 3) { }
+            gameObject.GetComponent<SpriteRenderer>().sprite = normalApparance;
+        }
     }
 }

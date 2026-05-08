@@ -16,7 +16,7 @@ public class ArcadeSC : MonoBehaviour
     [SerializeField] List<Sprite> previewPlanet = new List<Sprite>();
 
     public int deviceMode, gameMode;
-    private int  arcadeLv, baseTargetLv;
+    public int  arcadeLv, baseTargetLv;
     private float arcadeScore;
     public bool isPauseGameplay;
     void Start()

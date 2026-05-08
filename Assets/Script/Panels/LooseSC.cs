@@ -15,7 +15,7 @@ public class LooseSC : MonoBehaviour
 
     public void OnGameExit() { Application.Quit(); }
     public void OnReplay()
-    {
+    { 
         genCtr.OnReplay();
         genCtr.OnHideLose();
     }

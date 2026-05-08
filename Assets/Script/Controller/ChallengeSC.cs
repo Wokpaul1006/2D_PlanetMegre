@@ -367,4 +367,8 @@ public class ChallengeSC : MonoBehaviour
         CancelInvoke(nameof(AddChallengeScore));
         CancelInvoke(nameof(AddChallenegSurviveTime));
     }
+    public void OnUpdatePlayerData()
+    {
+        //Place holder
+    }
 }

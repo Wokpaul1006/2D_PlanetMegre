@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GenMNSC : Singleton<GenMNSC>
 {
@@ -11,9 +12,12 @@ public class GenMNSC : Singleton<GenMNSC>
     [HideInInspector] ArcadeSC arcadeCtr;
     [HideInInspector] ChallengeSC challengeCtr;
     [HideInInspector] HomeSC menuCtr;
+    [HideInInspector] AdsMN adsCtr;
     public int deviceType;
     public int curGameMode;
     public string today;
+    private int interAdsCount, rewardAdsCount;
+    private int targetInterAdsCount;
     private void Awake() => DontDestroyOnLoad(this);
     void Start()
     {
@@ -22,7 +26,12 @@ public class GenMNSC : Singleton<GenMNSC>
         if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.Android) deviceType = 1;
         else if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WebGLPlayer) deviceType = 2;
         HideAllPanel();
-        today = (DateTime.Today.Day).ToString() ;
+        Invoke(nameof(AssistAdsMn), 10f);
+        today = (DateTime.Today.Day).ToString();
+
+        interAdsCount = 0;
+        rewardAdsCount = 0;
+        targetInterAdsCount = 0;
     }
     void Update() { }
     public void AssistObjectPreload(int sceneOder)
@@ -45,9 +54,27 @@ public class GenMNSC : Singleton<GenMNSC>
     }
 
     #region Handle Switching Scene
-    public void OnLoadHome() => sceneCtr.OnLoadScene(1);
+    public void OnLoadHome() 
+    {
+        //update score
+        //updtae high level
+        curGameMode = 0;
+        interAdsCount += 1;
+        //adsLoadChance = UnityEngine.Random.Range(0, 100);
+        if (interAdsCount >= targetInterAdsCount)
+        {
+            adsCtr.ShowAds(1);
+            OnToHome();
+            interAdsCount = 0;
+        }
+        else if (interAdsCount < targetInterAdsCount)
+        {
+            OnToHome();
+        }
+    }
     public void OnLoadChallenge() => sceneCtr.OnLoadScene(3);
     public void OnLoadArcade() => sceneCtr.OnLoadScene(2);
+    public void OnToHome() => sceneCtr.OnLoadScene(1);
     #endregion
 
     #region Handle Panels
@@ -69,6 +96,7 @@ public class GenMNSC : Singleton<GenMNSC>
     public void OnShowInfor() => IsShowPanel(true, 4);
     public void OnShowRate() => IsShowPanel(true, 5);
     public void OnShowCredit() => IsShowPanel(true, 6);
+    public void OnShowPromtion() => IsShowPanel(true, 7);
     public void OnHideSetting() => IsShowPanel(false, 0);
     public void OnHidePause() => IsShowPanel(false, 1);
     public void OnHideLose() => IsShowPanel(false, 2);
@@ -76,7 +104,7 @@ public class GenMNSC : Singleton<GenMNSC>
     public void OnHideInfor() => IsShowPanel(false, 4);
     public void OnHideRate() => IsShowPanel(false, 5);
     public void OnHideCredit() => IsShowPanel(false, 6);
-    public void OnHideReadMe() => IsShowPanel(false, 7);
+    public void OnHidePromo() => IsShowPanel(false, 7);
     private void HideAllPanel()
     { 
         OnHideSetting();
@@ -86,7 +114,7 @@ public class GenMNSC : Singleton<GenMNSC>
         OnHideInfor();
         OnHideRate();
         OnHideCredit();
-        OnHideReadMe();
+        OnHidePromo();
     }
     #endregion
 
@@ -95,15 +123,37 @@ public class GenMNSC : Singleton<GenMNSC>
         if(curGameMode == 2)
         {
             arcadeCtr.UpdatePlayerData();
+            ToLoadRewardThenArcadeScene();
             Invoke(nameof(OnLoadArcade), 1.5f);
         }
         else if(curGameMode == 3)
         {
-
+            challengeCtr.OnUpdatePlayerData();
         }
     }
     public void UpdateHmeUI()
     {
         menuCtr.UpdateHomeInfo();
+    }
+    private void AssistAdsMn()
+    {
+        adsCtr = GameObject.Find("AdsMN").GetComponent<AdsMN>();
+        if (adsCtr == null) { print("adsMN null"); }
+    }
+    private void ToLoadRewardThenArcadeScene() => adsCtr.ShowAds(2);
+    public void LoadArcadeFromWin()
+    {
+        curGameMode = 0;
+        interAdsCount += 1;
+        if (interAdsCount >= targetInterAdsCount)
+        {
+            adsCtr.ShowAds(1);
+            OnLoadArcade();
+            interAdsCount = 0;
+        }
+        else if (interAdsCount < targetInterAdsCount)
+        {
+            OnLoadArcade();
+        }
     }
 }

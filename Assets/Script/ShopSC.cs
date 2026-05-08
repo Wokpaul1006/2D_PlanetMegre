@@ -17,7 +17,7 @@ public class ShopSC : MonoBehaviour
     void Start()
     {
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
-        data = GameObject.Find("OBJ_Data").GetComponent<DataSC>();
+        data = GameObject.Find("GenMN").GetComponent<DataSC>();
         homeCtr = GameObject.Find("MenuMN").GetComponent<HomeSC>();
         moneypackPnl.gameObject.SetActive(false);
         SetPrice();

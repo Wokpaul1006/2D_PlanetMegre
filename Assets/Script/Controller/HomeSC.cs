@@ -7,7 +7,7 @@ public class HomeSC : MonoBehaviour
 {
     [HideInInspector] GenMNSC genCtr;
     [HideInInspector] DataSC data;
-    [SerializeField] Text pNameTxt, pGemsTxt, pCoinTxt;
+    [SerializeField] Text pGemsTxt, pCoinTxt;
     [SerializeField] GameObject shopPnl, achievementPnl, rewardPnl, leaderPnl;
     bool isDailyCollect, isMonthlyCollect;
     string pName;
@@ -71,7 +71,6 @@ public class HomeSC : MonoBehaviour
     }
     private void OverridePlayerInfor()
     {
-        pNameTxt.text = pName;
         pGemsTxt.text = pGem.ToString();
         pCoinTxt.text = pCoin.ToString();
     }
@@ -80,6 +79,10 @@ public class HomeSC : MonoBehaviour
         //Only call once close any panel
         GetPlayerInfor();
         OverridePlayerInfor();
+    }
+    public void OnShowPromotion()
+    {
+        genCtr.OnShowPromtion();
     }
     #endregion
 }
