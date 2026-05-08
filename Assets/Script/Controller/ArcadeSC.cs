@@ -64,9 +64,12 @@ public class ArcadeSC : MonoBehaviour
         tempScore = arcadeScore + score;
         arcadeScore = tempScore;
         pScoreTxt.text = arcadeScore.ToString();
+        print("baseLevel = " + baseTargetLv);
         if(arcadeScore == baseTargetLv)
         {
+            print("in increase level");
             arcadeLv++;
+            pLevelTxt.text = arcadeLv.ToString();
             DetermineNextLevelTarget();
         }
     }

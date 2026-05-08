@@ -13,9 +13,9 @@ public class DataSC : MonoBehaviour
     public string pName;
     public int pHighScore, pTotalScore, pHighLv, pStoryLvl, pGems;
     public int pSFX, pTheme;
-    public int pAbility, pAllowClaimDaily, pAllowClaimMonthly;
-    public int pDailyStreak,pMonthlyStreak;
-    public string pLastDailyClaim, pLastMonthlyClaim;
+    public int pAbility, pAllowClaimDaily;
+    public int pDailyStreak;
+    public string pLastDailyClaim;
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -63,11 +63,8 @@ public class DataSC : MonoBehaviour
 
         //Patrol Reward
         PlayerPrefs.SetInt("AllowClaimDaily", 0);
-        PlayerPrefs.SetInt("AllowClaimMonthly", 0);
         PlayerPrefs.SetString("LastPatrolDailyTime", "");
-        PlayerPrefs.SetString("LastPatrolMonthlyTime", "");
         PlayerPrefs.SetInt("PatrolDailyStreak", 0);
-        PlayerPrefs.SetInt("PatrolMonthlyStreak", 0);
 
         Invoke("LoadOldPlayer", 3f); //De tam thoi
     }
@@ -85,11 +82,8 @@ public class DataSC : MonoBehaviour
 
         //Patrol Reward
         pLastDailyClaim = PlayerPrefs.GetString("LastPatrolDailyTime");
-        pLastMonthlyClaim = PlayerPrefs.GetString("LastPatrolMonthlyTime");
         pAllowClaimDaily = PlayerPrefs.GetInt("AllowClaimDaily");
-        pAllowClaimMonthly = PlayerPrefs.GetInt("AllowClaimMonthly");
         pDailyStreak = PlayerPrefs.GetInt("PatrolDailyStreak");
-        pMonthlyStreak = PlayerPrefs.GetInt("PatrolMonthlyStreak");
     }
     public void DataDelete()
     {
@@ -169,24 +163,10 @@ public class DataSC : MonoBehaviour
         PlayerPrefs.SetInt("AllowClaimDaily", state);
         pAllowClaimDaily = PlayerPrefs.GetInt("AllowClaimAllowClaimDaily");
     }
-    public void UpdateAllowClaimMontly(int state)
+    public void UpdateStreak(int value)
     {
-        PlayerPrefs.SetInt("AllowClaimMontly", state);
-        pAllowClaimMonthly = PlayerPrefs.GetInt("AllowClaimMontly");
-    }
-    public void UpdateStreak(int typeStreak, int value)
-    {
-        switch (typeStreak)
-        {
-            case 1:
-                PlayerPrefs.SetInt("PatrolDailyStreak", value);
-                pDailyStreak = value;
-                break;
-            case 2:
-                PlayerPrefs.SetInt("PatrolMonthlyStreak", value);
-                pMonthlyStreak = value;
-                break;
-        }
+        PlayerPrefs.SetInt("PatrolDailyStreak", value);
+        pDailyStreak = value;
     }
     #endregion
 

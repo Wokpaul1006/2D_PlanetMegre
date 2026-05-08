@@ -31,7 +31,7 @@ public class GenMNSC : Singleton<GenMNSC>
 
         interAdsCount = 0;
         rewardAdsCount = 0;
-        targetInterAdsCount = 0;
+        targetInterAdsCount = 3;
     }
     void Update() { }
     public void AssistObjectPreload(int sceneOder)
@@ -63,6 +63,7 @@ public class GenMNSC : Singleton<GenMNSC>
         //adsLoadChance = UnityEngine.Random.Range(0, 100);
         if (interAdsCount >= targetInterAdsCount)
         {
+            print("in call loadHOme");
             adsCtr.ShowAds(1);
             OnToHome();
             interAdsCount = 0;
@@ -147,6 +148,7 @@ public class GenMNSC : Singleton<GenMNSC>
         interAdsCount += 1;
         if (interAdsCount >= targetInterAdsCount)
         {
+            print("in call load arcade from win");
             adsCtr.ShowAds(1);
             OnLoadArcade();
             interAdsCount = 0;

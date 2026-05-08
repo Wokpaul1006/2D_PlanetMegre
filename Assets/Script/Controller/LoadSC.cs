@@ -47,7 +47,7 @@ public class LoadSC : MonoBehaviour
         {
             logoIMG.gameObject.SetActive(true);
             StopCoroutine(RunLoadGameLogo());
-            genCtr.OnLoadHome();
+            genCtr.OnToHome();
         }
         yield return new WaitForSeconds(0.1f);
         logoIMG.GetComponent<Image>().fillAmount += loadSpd2 * Time.deltaTime * 10;

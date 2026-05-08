@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 public class PatrolRewardSC : MonoBehaviour
 {
     [HideInInspector] DataSC data;
     [HideInInspector] GenMNSC genCtr;
+    [HideInInspector] HomeSC menuCtr;
 
     [SerializeField] List<Button> rewardBtn = new List<Button>();
 
@@ -20,6 +22,7 @@ public class PatrolRewardSC : MonoBehaviour
     {
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
         data = GameObject.Find("GenMN").GetComponent<DataSC>();
+        menuCtr = GameObject.Find("MenuMN").GetComponent<HomeSC>();
         OnCheckDailyClaimOnInit();
     }
     void Start()
@@ -106,13 +109,11 @@ public class PatrolRewardSC : MonoBehaviour
         streakDaily++;
         data.UpdateAllowClaimDaily(1);
 
-        print("tempFinalScoreToOverride = " + tempFinalScoreToOverride);
-
         data.UpdateTotalScore(tempFinalScoreToOverride); // Update score
-        data.UpdateStreak(1, streakDaily); //Update streak
+        data.UpdateStreak(streakDaily); //Update streak
         data.UpdatePatrolDailyReward(lastCollectDay); //Update last collect day
         ShowRewardDaily();
-        genCtr.UpdateHmeUI();
+        menuCtr.UpdateHomeInfo();
     }
     private void SelectRewardDaily()
     {

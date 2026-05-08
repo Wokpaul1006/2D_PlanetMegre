@@ -22,7 +22,7 @@ public class HomeSC : MonoBehaviour
         OnShowReward(false);
         OnShowShop(false);
         GetPlayerInfor();
-
+        RemindNewDailyClaim();
     }
     #region Change Scene
     public void OnToArcade() => genCtr.OnLoadArcade();
@@ -32,32 +32,26 @@ public class HomeSC : MonoBehaviour
     #region Panel Visible
     public void OnShowShop(bool isShow)
     {
-        print("in show");
         shopPnl.gameObject.SetActive(isShow);
     }
     public void OnShowAchievement(bool isShow)
     {
-        print("in show");
         achievementPnl.gameObject.SetActive(isShow);
     }
     public void OnShowLeader(bool isShow)
     {
-        print("in show");
         leaderPnl.gameObject.SetActive(isShow);
     }
     public void OnShowReward(bool isShow)
     {
-        print("in show");
         rewardPnl.gameObject.SetActive(isShow);
     }
     public void OnShowSetting()
     {
-        print("in show");
         genCtr.OnShowSetting();
     }
     public void OnShowInfor()
     {
-        print("in show");
         genCtr.OnShowInfor();
     }
     #endregion
@@ -85,4 +79,11 @@ public class HomeSC : MonoBehaviour
         genCtr.OnShowPromtion();
     }
     #endregion
+    private void RemindNewDailyClaim()
+    {
+        if(genCtr.today != data.pLastDailyClaim && data.pAllowClaimDaily == 0)
+        {
+            OnShowReward(true);
+        }
+    }
 }
